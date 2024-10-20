@@ -86,5 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(updateMatchData, 5000);
     }
 
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
     initialize();
 });
