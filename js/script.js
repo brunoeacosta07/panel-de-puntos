@@ -22,8 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchMatchIds() {
         const response = await fetch(`${host}/game-ids`);
-        const matchIds = await response.json();
-        return matchIds;
+        const data = await response.json();
+        console.log(`ids: ${data.matchNumbers}`)
+        return data.matchNumbers;
     }
 
     async function fetchMatchData(matchId) {
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         matchIds.forEach(id => {
             const option = document.createElement('option');
             option.value = id;
-            option.textContent = `Match ${id}`;
+            option.textContent = `Partida ${id}`;
             matchSelect.appendChild(option);
         });
         selectedMatchId = Math.max(...matchIds);
